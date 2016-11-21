@@ -9,9 +9,9 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Component;
  
-@Component(value="gestion")
+@Component(value="gestionRetos")
 public class GestionRetosImpl implements GestionRetos{
-    @PersistenceContext(name="Retos2PU")
+    @PersistenceContext(name="P_S_GPU")
     EntityManager em;
     
     @Transactional()   

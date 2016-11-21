@@ -8,9 +8,9 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Component;
 
-@Component(value="gestion")
-public class GestionRecompensasImplementadas implements GestionRecompensas{
-    @PersistenceContext(name="")
+@Component(value="gestionRecomp")
+public class GestionRecompensasImpl implements GestionRecompensas{
+    @PersistenceContext(name="P_S_GPU")
     EntityManager em;
     
     @Transactional()   
@@ -20,6 +20,7 @@ public class GestionRecompensasImplementadas implements GestionRecompensas{
         return true;
     }
      
+    @Override
     public List<Recompensas> obtenerRecompensas() {
         String sql="Select r from Recompensas recom";
         Query q=em.createQuery(sql);
@@ -27,6 +28,7 @@ public class GestionRecompensasImplementadas implements GestionRecompensas{
         
     }
     
+    @Override
     public List<Recompensas> eliminarRecompensas() {
         String sql = "DELETE FROM Retos r WHERE r.idrecompensas = :idrecompensas";
         Query q=em.createQuery(sql);

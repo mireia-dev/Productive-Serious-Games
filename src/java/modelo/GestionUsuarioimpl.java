@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 
-@Component (value="gestion")
+@Component (value="gestionUsuario")
 public class GestionUsuarioimpl implements GestionUsuario,Serializable{
     
     @PersistenceContext(name = "P_S_GPU")
