@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="P_S_GPU" transaction-type="RESOURCE_LOCAL">
+    <class>entidades.HandTipoMovimientos</class>
+    <class>entidades.HandPlanifHist</class>
+    <class>entidades.MedallasplantRetos</class>
+    <class>entidades.HandExcep</class>
+    <class>entidades.HandHreal</class>
+    <class>entidades.MedallasAlmacen</class>
+    <class>entidades.NombreRetos</class>
+    <class>entidades.HandTipoTiempo</class>
+    <class>entidades.IntermediaRecomMedallas</class>
+    <class>entidades.HandHrealOper</class>
+    <class>entidades.TipoActividad</class>
+    <class>entidades.MedallasUsuario</class>
+    <class>entidades.HandPlantas</class>
+    <class>entidades.HandTiempos</class>
+    <class>entidades.HandZonas</class>
+    <class>entidades.HandMot</class>
+    <class>entidades.MedallasusuRetos</class>
+    <class>entidades.HandCategoriaEquipo</class>
+    <class>entidades.HandDistc</class>
+    <class>entidades.TrUsuarios</class>
+    <class>entidades.HandCuadrante</class>
+    <class>entidades.HandDesviosTiempos2</class>
+    <class>entidades.HandPlanif</class>
+    <class>entidades.HandEstaciones</class>
+    <class>entidades.Retos</class>
+    <class>entidades.HandEquipos</class>
+    <class>entidades.NivelesActividad</class>
+    <class>entidades.HandPlantaEstCuad</class>
+    <class>entidades.HandTurnos</class>
+    <class>entidades.Recompensas</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+  </persistence-unit>
+</persistence>
