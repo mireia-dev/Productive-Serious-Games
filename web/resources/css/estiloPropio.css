@@ -65,3 +65,26 @@ h4{
 .iconBlanco{
     color:white;
 }
+
+.btn-primary{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;  
+    font-size: 1.6em;
+    color: #fff;
+    background-color: #219198;
+    border-color: #122b40;
+}
+
+.btn-primary:hover{
+    background-color: #14474b;
+  
+}
+
+btn-primary:focus{
+    background-color: #14474b;
+}
+
+.lupa{
+      
+    width: 0.5em;  
+}

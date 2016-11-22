@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:loadBundle basename="textos.mensajes" var="msj"/>
+
+    <h:head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+        <meta charset="utf-8"></meta>
+        <title>Panel de Administración</title>
+        <meta name="generator" content="Bootply"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+        <meta http-equiv="X-UA-Conpatible" content="IE=edge"></meta>
+
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>  
+        <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>  
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"></link>
+        <h:outputStylesheet library="css" name="estiloPropio.css"></h:outputStylesheet>  
+
+        <!-- script references -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </h:head>
+
+    <h:body>
+
+        <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p:commandButton type="button" class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </p:commandButton>
+                    <a class="navbar-brand" href="#">Mi panel de Administración</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                            <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                                <li><a href="#">My Profile</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /Header -->
+
+        <!-- Main -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <!-- Left column -->
+                    <!--<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Opciones</strong></a>-->
+
+                    <ul class="nav nav-stacked">
+                        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
+                            <ul class="nav nav-stacked collapse in" id="userMenu">
+                                <!--echar un ojo a esto-->    <li><i class="glyphicon glyphicon-th"></i><h:outputLink value="index.xhtml"><h:outputText value="Tipo de actividad"/></h:outputLink></li>
+                                <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i> Retos usuario</a></li>
+                                <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i> Medalla usuario</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-tower"></i> Medalla almacén</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Recompensa</a></li>
+                                <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /col-2 -->
+                <div class="col-sm-9">
+
+                    <!-- column 2 -  NOMBRE  RETO VALORES FECHAS PUNTOS -->
+
+                    <!--        TITULO      -->
+
+                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i> Crear Medalla Usuario</strong></a>
+                    <hr></hr>
+
+                    <!--          PARTE CENTRAL            -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="titulo">
+                                    <h4><h:outputText value="#{msj.MedallaUsuario}"/></h4></div>
+                                <div class="panel-body">
+                                    <h:inputTextarea rows="1" cols="15" accesskey="true"  value="#{NewMedallaUser.RetosSelec}"
+                                                     label="Nombre Nueva Medalla" required="true"></h:inputTextarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="titulo">
+                                    <h4><h:outputText value="#{msj.Reto}"/></h4>
+                                </div>
+                                <div class="panel-body">
+                                    <h:selectManyCheckbox value="#{beanNewMedallaUser.RetosSelec}"> 
+                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->   <!--cada n va a ser un javabean-->
+                                        <f:selectItems value="#{beanNewMedallaUser.Retos}" var="n"  
+                                                       itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
+                                    </h:selectManyCheckbox>
+                                </div>
+                                <!--/panel-body-->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="titulo">
+                                    <h4><h:outputText value="#{msj.Valores}"/></h4>
+                                </div>
+                                <div class="panel-body">                
+                                    <h:outputText value="#{msj.NivelesConsec}"/>
+                                    <br></br>
+                                    <br></br>
+                                    <div class="row">
+                                        <h:outputLabel for="number" value="Mínimo" style="font-weight:bold; text-align: right" class="col-md-3"/>                    
+                                        <h:inputText id="number" value="#{beanNewAct.integer}" label="Number" size="6" maxlength="6" required="true" class="col-md-3"></h:inputText>
+                                        <h:outputText value="#{validationView.integer}" />
+                                        <h:outputLabel for="number" value="Máximo" style="font-weight:bold; text-align: right" class="col-md-3"/>
+                                        <h:inputText id="number" value="#{beanNewAct.integer}" label="Number" size="6" maxlength="6" required="true" class="col-md-3"></h:inputText>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="titulo">
+                                    <h4><h:outputText value="#{msj.Puntos}"/></h4>
+                                </div>
+                                <div class="panel-body">                                                     
+                                    Introduce los puntos para establecer medalla:
+                                    <br></br>
+                                    <br></br>
+                                    <h:outputLabel for="number" value="Puntos" style="font-weight:bold; text-align: right" class="col-md-3"/>
+                                    <h:inputText required="required" value="#{beanNewMedallaUser.xxx}" size="6" maxlength="6" accesskey="true" ></h:inputText>
+
+                                </div>
+                            </div>   
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="titulo">
+                                    <h4><h:outputText value="#{msj.Fecha}"/></h4></div>
+                                <div class="panel-body">   
+                                    Introduce fechas para establecer actividad:
+                                    <br></br>
+                                    <br></br>
+                                    <div class="row">
+                                        <p:outputLabel for="fechaInicio" value="#{msj.Inicio}" class="col-md-2" style="text-align: right" />
+                                        <p:calendar pattern="MM/dd/yyyy" id="fechaInicio" value="#{calendarView.fechaInicio}" required="requiered" mindate="2016-01-01" class="col-md-2" />
+                                    </div>
+                                    <br></br>
+                                    <div class="row">
+                                        <p:outputLabel for="fechaInicio" value="#{msj.Fin}" class="col-md-2" style="text-align: right" />
+                                        <p:calendar pattern="dd/MM/yyyy" widgetVar="cal" class="col-md-2"> 
+                                            <p:ajax event="dateSelect" oncomplete="onDateSelect()"></p:ajax>
+                                        </p:calendar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--                    BOTONES             -->
+
+                <div class="col-md-offset-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
+                                             action="#{beanMedalla.consultaMedalla}">
+                            </p:commandButton> 
+                        </div>
+                    </div>
+                    <br></br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
+                                             actionListener="crearMedallaUser.xhtml">  
+                            </p:commandButton> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="addWidgetModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p:commandButton class="close">×</p:commandButton>
+                        <h4 class="modal-title">Add Widget</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Add a widget stuff here..</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn">Close</a>
+                        <a href="#" class="btn btn-primary">Save changes</a>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dalog -->
+        </div>
+
+    </h:body>
+</html>
+
