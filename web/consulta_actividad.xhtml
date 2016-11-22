@@ -67,9 +67,9 @@
                             <ul class="nav nav-stacked collapse in" id="userMenu">
                                 <li><a href="#"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
-                                <li><a href="consulta_mellaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
+                               <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
+                                <li><a href="consulta_recompensa.xhtml"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                             </ul>
                         </li>
@@ -87,12 +87,21 @@
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Centros}"/></h4>
                                 </div>
-                                <div class="panel-body">
-                                    <h:selectManyCheckbox value="#{beanActividades.CentrosSelec}">
-                                    <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->
-                                    <f:selectItems value="#{beanActividades.Centros}" var="n"
-                                    itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
-                                    </h:selectManyCheckbox>
+                                <div class="panel-body">                               
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{beanActividades.CentrosSelec}" label="Centros"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{beanActividades.Centros}" var="n"
+                                                                        itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
+
+<!--                                        <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+                                            <p:dataList value="#{beanActividades.CentrosSelec}" var="centro" emptyMessage="Centros no seleccionados">
+                                                #{centros}
+                                            </p:dataList>
+                                        </p:outputPanel> -->
                                 </div>
                             </div>
                         </div>
@@ -103,10 +112,21 @@
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Actividad}"/></h4></div>
                                 <div class="panel-body">
-                                    <h:selectManyCheckbox value="#{beanActividades.ActividadesSelec}">
-                                    <f:selectItems value="#{beanActividades.Actividades}" var="n"
-                                    itemLabel="#{n.nombreAct}" itemValue="#{n.idAct}" />
-                                    </h:selectManyCheckbox>                            
+                                    
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu"/>
+                                            <p:selectCheckboxMenu id="menu" value="#{beanActividades.ActividadesSelec}" label="Actividades"
+                                                                  filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{beanActividades.Actividades}" var="n"
+                                                                        itemLabel="#{n.nombreAct}" itemValue="#{n.idAct}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
+
+<!--                                        <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+                                            <p:dataList value="#{beanActividades.ActividadesSelec}" var="acti" emptyMessage="Actividades no seleccionados">
+                                                #{actividades}
+                                            </p:dataList>
+                                        </p:outputPanel> -->
                                 </div>
                             </div>
                         </div>

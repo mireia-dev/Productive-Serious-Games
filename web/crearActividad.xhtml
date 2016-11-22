@@ -88,15 +88,15 @@
                                         <div class="panel-heading" id="titulo">
                                             <h4><h:outputText value="#{msj.Centros}"/></h4>
                                         </div>
-                                        <div class="panel-body">   
-                                            <h:selectManyCheckbox value="#{beanNewAct.CentrosSelec}"> 
-                                                <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->   <!--cada n va a ser un javabean-->
-                                                <f:selectItems value="#{beanNewAct.Centros}" var="n"  
-                                                               itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
-                                            </h:selectManyCheckbox>
-
-                                            <h:inputText id="actividad"  value="#{beanNewAct.Actividad}"/>
-                                            <!-- aquí irá el BEAN llamado "beanNewAct" -->
+                                        <div class="panel-body">                             
+                                            <h:panelGrid columns="3" cellpadding="5">
+                                                <h:outputLabel for="menu" />
+                                                <p:selectCheckboxMenu id="menu" value="#{beanNewAct.CentrosSelec}" label="Centros"
+                                                                      required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
+                                                    <f:selectItems value="#{beanNewAct.Centros}" var="n"
+                                                                            itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
+                                                </p:selectCheckboxMenu>
+                                            </h:panelGrid>
                                         </div>
                                     </div>
                                     <!--/panel-->
@@ -139,12 +139,12 @@
                                         <div class="panel-heading" id="titulo">
                                             <h4><h:outputText value="#{msj.Fecha}"/></h4></div>
                                         <div class="panel-body">   
-                                            Introduce fechas para establecer actividad:
+                                            <h:outputText value="#{msj.FechasFiltro}"/>
                                             <br></br>
                                             <br></br>
                                             <div class="row">
                                                 <p:outputLabel for="fechaInicio" value="Inicio" class="col-md-2" style="text-align: right" />
-                                                <p:calendar pattern="MM/dd/yyyy" id="fechaInicio" value="#{calendarView.fechaInicio}" required="requiered" mindate="2016-01-01" class="col-md-2" />
+                                                <p:calendar pattern="dd/MM/yyyy" id="fechaInicio" value="#{calendarView.fechaInicio}" required="requiered" mindate="2016-01-01" class="col-md-2" />
                                             </div>
                                             <br></br>
                                             <div class="row">

@@ -82,43 +82,22 @@
                     <div class="row">
 
                         <div class="col-md-4">
-                          
                             <!-- RETOS-->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Retos}"/></h4>
                                 </div>
-                                
-                                <div class="panel-body">
-                                   
-                                    <!--multiselect-->
-                                                            <!--    managedBean.atributo        -->
-                            <!--    <h:selectManyCheckbox value="#{GestionRetos.RetosSelec}">
-                                    <f:selectItems value="#{GestionRetos.Retos}" var="n"
-                                    itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
-                                    </h:selectManyCheckbox>
-                                         --> 
-                                         
-                                    <h:panelGrid columns="3" cellpadding="5">
-                                        <h:outputLabel for="menu" value="Centros:  " />
-                                        <p:selectCheckboxMenu id="menu" value="#{GestionRetos.RetosSelec}" label="Centros"
-                                                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                                            <f:selectItems value="#{GestionRetos.Retos}" var="n"
-                                    itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}" />
-                                        </p:selectCheckboxMenu>
-                                    <!--    <p:commandLink value="Submit" update="display" />   -->
-                                    </h:panelGrid>
-
-                                    <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
-                                        <p:dataList value="#{GestionRetos.RetosSelec}" var="centro" emptyMessage="Centros no seleccionados">
-                                            #{retos}
-                                        </p:dataList>
-                                    </p:outputPanel>       
-                                         
+                                <div class="panel-body">                               
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{GestionRetos.RetosSelec}" label="Centros"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{GestionRetos.Retos}" var="n"
+                                                                        itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
                                 </div>
-                                    
-                            </div>
-                            
+                            </div>      
                         </div>
 
                         <div class="col-md-4">
@@ -176,29 +155,19 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" action="#{beanReto.consultaReto}" >
-                                    <h:outputText value="#{msj.Consultarct}"/>
-                                </p:commandButton> 
+                                <p:button target="_blank"  value="#{msj.Consultar}" class="btn btn-primary col-md-5" id="boton">
+                                </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" action="crearReto.xhtml">
-                                    <h:outputText value="#{msj.CrearNuevoReto}"/>
-                                </p:commandButton> 
+                                <p:button target="_blank" href="crearReto.xhtml" value="#{msj.CrearNuevoReto}" class="btn btn-primary col-md-5" 
+                                          id="boton2">
+                                </p:button>
                             </div>
                         </div>
-                        
-                        <h:form>
-                            <p:growl id="growl" life="2000" />
-
-                            <p:commandButton value="Crear nuevo reto" id="withIcon" actionListener="#{buttonView.buttonAction}" update="growl" icon="ui-icon-disk" />
-
-                        </h:form>
-                        
                     </div>
-
 
                     <div class="row">
                         <div class="col-md-12">
@@ -241,7 +210,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
             <div class="modal" id="addWidgetModal">
                 <div class="modal-dialog">
@@ -260,7 +228,9 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
+        
     </h:body>
 </html>
 
