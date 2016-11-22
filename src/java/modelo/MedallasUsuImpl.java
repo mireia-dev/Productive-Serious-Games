@@ -89,9 +89,13 @@ public class MedallasUsuImpl implements MedallasUsu {
             jpql+=" and r.nombre='"+nombre_reto+"'";
         }*/
         if(nombre_reto!=null && !nombre_reto.equals("")){
-            String valores="("+nombre_reto;
-            for(int i=1;i<nombre_reto.size();i++){
-                valores+=","+nombre_reto.get(i);
+            String valores="(";
+            for(int i=1;i<=nombre_reto.size();i++){
+                if (i==nombre_reto.size()){
+                    valores+=nombre_reto.get(i);
+                }else{
+                    valores+=nombre_reto.get(i)+",";
+                }
             }
             valores+=")";
             jpql+=" r.nombre_reto in "+valores;

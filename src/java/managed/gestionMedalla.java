@@ -27,7 +27,7 @@ public class gestionMedalla implements Serializable{
    private List<Retos> listadoMedallas = null;
    
    @ManagedProperty("#{gestionmed}")
-   MedallasUsu medallasusu;
+   private MedallasUsu medallasusu;
    
     public gestionMedalla(){    
     }
