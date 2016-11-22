@@ -49,14 +49,6 @@ public class beanLogin implements Serializable{
         this.user = user;
     }
     
-    public String getusuario() {
-        return usuario;
-    }
-
-    public void setusuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public String getPassword() {
         return password;
     }
