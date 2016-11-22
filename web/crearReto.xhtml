@@ -63,11 +63,11 @@
                     <ul class="nav nav-stacked">
                         <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
-                                <li><a href="index.xhtml"><i class="glyphicon glyphicon-th"></i> Tipo de actividad</a></li>
-                                <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i> Retos usuario</a></li>
-                                <li><a href="consulta_mellaUser.xhtml"><i class="glyphicon glyphicon-user"></i> Medalla usuario</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-tower"></i> Medalla almacén</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Recompensa</a></li>
+                                <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
+                                <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
+                                <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
+                                <li><a href="consulta_recompensa"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                             </ul>
                         </li>
@@ -161,16 +161,16 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                                 action="#{beanMedalla.consultaMedalla}">
+                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Guardar" 
+                                                 action="#{GestionRetos.xxxx}">
                                 </p:commandButton> 
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
-                                                 actionListener="crearMedallaUser.xhtml">  
+                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Cerrar" 
+                                                 action="consulta_reto">  
                                 </p:commandButton> 
                             </div>
                         </div>

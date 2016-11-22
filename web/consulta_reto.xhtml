@@ -26,6 +26,7 @@
         <script src="js/Date.js" type="text/javascript"></script>
 
     </h:head>
+    <!-- COMPLETAR PARA EVA Y NADIA: enlace de Crear, pasarles el código, conectar boton d cerrar y guardar, revisar MG y métodos. y cambiar el select many a menu -->
 
     <h:body>
 
@@ -64,37 +65,60 @@
                     <ul class="nav nav-stacked">
                         <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
-                                <li><a href="#"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
+                                <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
                                 <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
+                                <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
+                                <li><a href="consulta_recompensa"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
-                <!-- /col-2 -->
+                <!-- CONTENIDO FILTROS BÚSQUEDA -->
                 <div class="col-md-9">
-                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value="#{msj.Retos}"/></strong></a>
+                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value=" #{msj.Retos}"/></strong></a>
                     <hr></hr>
                     <div class="row">
 
                         <div class="col-md-4">
-                            <!-- AQUÍ METO MI CONTENIDO-->
+                          
+                            <!-- RETOS-->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Retos}"/></h4>
                                 </div>
+                                
                                 <div class="panel-body">
-                                                    <!--multiselect-->
-                                    <h:selectManyCheckbox value="#{beanRetos.RetosSelec}">
-                                    <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->
-                                    <f:selectItems value="#{beanRetos.Retos}" var="n"
+                                   
+                                    <!--multiselect-->
+                                                            <!--    managedBean.atributo        -->
+                            <!--    <h:selectManyCheckbox value="#{GestionRetos.RetosSelec}">
+                                    <f:selectItems value="#{GestionRetos.Retos}" var="n"
                                     itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
                                     </h:selectManyCheckbox>
+                                         --> 
+                                         
+                                    <h:panelGrid columns="3" cellpadding="5">
+                                        <h:outputLabel for="menu" value="Centros:  " />
+                                        <p:selectCheckboxMenu id="menu" value="#{GestionRetos.RetosSelec}" label="Centros"
+                                                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                                            <f:selectItems value="#{GestionRetos.Retos}" var="n"
+                                    itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}" />
+                                        </p:selectCheckboxMenu>
+                                    <!--    <p:commandLink value="Submit" update="display" />   -->
+                                    </h:panelGrid>
+
+                                    <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+                                        <p:dataList value="#{GestionRetos.RetosSelec}" var="centro" emptyMessage="Centros no seleccionados">
+                                            #{retos}
+                                        </p:dataList>
+                                    </p:outputPanel>       
+                                         
                                 </div>
+                                    
                             </div>
+                            
                         </div>
 
                         <div class="col-md-4">
@@ -108,12 +132,12 @@
                                     <br></br>
                                     <div class="row">
                                         <h:outputLabel for="number" value="Mínimo" style="font-weight:bold" class="col-md-3"/>                    
-                                        <h:inputText id="number" value="#{beanMedallasUser.integer}" label="Number" class="col-md-4"></h:inputText>
+                                        <h:inputText id="number" value="#{gestionRetos.integer}" label="Number" class="col-md-4"></h:inputText>
                                     </div>
                                     <br></br>
                                     <div class="row">
                                         <h:outputLabel for="number" value="Máximo" style="font-weight:bold" class="col-md-3"/>  
-                                        <h:inputText required="required" value="#{beanMedallasUser.xxx}" size="6" maxlength="6" class="col-md-4"></h:inputText>
+                                        <h:inputText required="required" value="#{gestionRetos.xxx}" size="6" maxlength="6" class="col-md-4"></h:inputText>
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +155,7 @@
                                     <div class="row">
                                         <h:outputLabel for="number" value="#{msj.Minima}" style="font-weight:bold; text-align: right" class="col-md-3" /> 
                                         <p:calendar pattern="dd/MM/yyyy" widgetVar="cal" class="col-md-2" accesskey="true"
-                                                    id="fechaInicio" value="#{calendarView.fechaInicio}" required="true" mindate="2016-01-01">
+                                                    id="fechaInicio" value="#{gestionRetos.fechaInicio}" required="true" mindate="2016-01-01">
                                             <p:ajax event="dateSelect" oncomplete="onDateSelect()" id="calendario"></p:ajax>
                                         </p:calendar>
                                     </div>
@@ -139,7 +163,7 @@
                                     <div class="row">
                                         <h:outputLabel for="number" value="#{msj.Maxima}" style="font-weight:bold; text-align: right" class="col-md-3" /> 
                                         <p:calendar pattern="dd/MM/yyyy" widgetVar="cal" class="col-md-2" accesskey="true" 
-                                                    id="fechaMax" value="#{calendarView.fechaFin}" required="true" mindate="fechaInicio"> 
+                                                    id="fechaMax" value="#{gestionRetos.fechaFin}" required="true" mindate="fechaInicio"> 
                                             <p:ajax event="dateSelect" oncomplete="onDateSelect()" id="calendario"></p:ajax>
                                         </p:calendar>
                                     </div>
@@ -152,19 +176,27 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar"
-                                                 action="#{beanReto.consultaReto}" >
+                                <p:commandButton class="btn btn-primary col-md-5" id="boton" action="#{beanReto.consultaReto}" >
+                                    <h:outputText value="#{msj.Consultarct}"/>
                                 </p:commandButton> 
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nuevo reto"
-                                                 actionListener="crearReto.xhtml">
+                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" action="crearReto.xhtml">
+                                    <h:outputText value="#{msj.CrearNuevoReto}"/>
                                 </p:commandButton> 
                             </div>
                         </div>
+                        
+                        <h:form>
+                            <p:growl id="growl" life="2000" />
+
+                            <p:commandButton value="Crear nuevo reto" id="withIcon" actionListener="#{buttonView.buttonAction}" update="growl" icon="ui-icon-disk" />
+
+                        </h:form>
+                        
                     </div>
 
 

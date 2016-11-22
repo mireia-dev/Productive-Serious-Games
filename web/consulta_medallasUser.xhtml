@@ -64,11 +64,11 @@
                     <ul class="nav nav-stacked">
                         <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
-                                <li><a href="#"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
+                                <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
-                                <li><a href="consulta_mellaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
+                                <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
+                                <li><a href="consulta_recompensa.xhtml"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                             </ul>
                         </li>
@@ -78,7 +78,7 @@
                 <div class="col-md-9">
 
                     <!-- column 2 -->
-                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value="#{msj.MedallasAlmacen}"/></strong></a>
+                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value=" #{msj.CrearMedallasUser}"/></strong></a>
                     <hr></hr>
                     <div class="row">
 
@@ -98,22 +98,6 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-4">
-                            <!-- NOMBRE MEDALLA ALMACÉN -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading" id="titulo">
-                                    <h4><h:outputText value="#{msj.MedallasUser}"/></h4>
-                                </div>
-                                <div class="panel-body">
-                                    <!--multiselect-->
-                                    <h:selectManyCheckbox value="#{beanMedallasUser.CentrosSelec}">
-                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->
-                                        <f:selectItems value="#{beanMedallasUser.MedallaUser}" var="n"
-                                                       itemLabel="#{n.nombreMedallaUser}" itemValue="#{n.idMedallaUser}"/>
-                                    </h:selectManyCheckbox>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-4">
                             <!-- RETOS -->
                             <div class="panel panel-default">
