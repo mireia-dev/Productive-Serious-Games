@@ -16,10 +16,10 @@
                 value="com.mysql.jdbc.Driver">
         </property>
         <property name="url"
-                 value="jdbc:mysql://localhost:3307/psg">
+                 value="jdbc:mysql://localhost:3306/psg">
         </property>
         <property name="username" value="root"></property>
-        <property name="password" value="talentumsql"></property>
+        <property name="password" value="M1r31a_G1l4B3rT"></property>
     </bean>
     
     <bean id="entityFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
