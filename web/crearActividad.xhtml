@@ -82,7 +82,7 @@
                         <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i> Crear Actividad</strong></a>
                         <hr></hr>
                             <div class="row">
-                                <!-- center left-->
+                                <!-- CENTROS -->
                                 <div class="col-md-6">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" id="titulo">
@@ -101,6 +101,7 @@
                                     </div>
                                     <!--/panel-->
                                 </div>
+                                
                                 <!--/col-->
                                 <div class="col-md-6">
                                     <div class="panel panel-default">
@@ -163,17 +164,15 @@
                         <div class="col-md-offset-4">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                                     action="#{beanMedalla.consultaMedalla}">
-                                    </p:commandButton> 
+                                    <p:button target="_blank"  value="#{msj.Guardar}" class="btn btn-primary col-md-5" id="boton" onclick="guardar()">
+                                    </p:button>
                                 </div>
                             </div>
                             <br></br>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
-                                                     actionListener="crearMedallaUser.xhtml">  
-                                    </p:commandButton> 
+                                    <p:button target="_blank"  value="#{msj.Cerrar}" class="btn btn-primary col-md-5" id="boton" onclick="cerrar()">
+                                    </p:button>
                                 </div>
                             </div>
                         </div>

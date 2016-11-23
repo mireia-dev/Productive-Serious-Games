@@ -78,7 +78,7 @@
                 <!-- /col-2 -->
                 <div class="col-sm-9">
                     <!-- column 2 -->
-                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value="#{msj.MedallasUsuario}"/></strong></a>
+                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value=" #{msj.ConsultaActividad}"/></strong></a>
                     <hr></hr>
                     <div class="row">
                         <div class="col-md-6">
@@ -135,17 +135,17 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                                 action="#{beanActividades.consultaActividad}">
-                                </p:commandButton> 
+                                <p:button target="_blank"  value="#{msj.Consultar}" class="btn btn-primary col-md-5" id="boton"
+                                          onclick="consultaActividad()">
+                                </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva actividad" 
-                                                 actionListener="crearActividad.xhtml">  
-                                </p:commandButton> 
+                                <p:button target="_blank" href="crearActividad.xhtml" value="#{msj.CrearNuevaActividad}" class="btn btn-primary col-md-5" 
+                                          id="boton2">
+                                </p:button>
                             </div>
                         </div>
                     </div>         

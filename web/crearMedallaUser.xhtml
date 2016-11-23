@@ -94,104 +94,121 @@
                                                      label="Nombre Nueva Medalla" required="true"></h:inputTextarea>
                                 </div>
                             </div>
-                        </div>
+                        </div>                
+                        
                         <div class="col-md-4">
+                            <!-- RETOS -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
-                                    <h4><h:outputText value="#{msj.Reto}"/></h4>
+                                    <h4><h:outputText value="#{msj.Retos}"/></h4>
                                 </div>
-                                <div class="panel-body">
-                                    <h:selectManyCheckbox value="#{beanNewMedallaUser.RetosSelec}"> 
-                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->   <!--cada n va a ser un javabean-->
-                                        <f:selectItems value="#{beanNewMedallaUser.Retos}" var="n"  
-                                                       itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
-                                    </h:selectManyCheckbox>
+                                <div class="panel-body">                               
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{beanNewMedallaUser.RetosSelec}" label="Retos"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{beanNewMedallaUser.Retos}" var="n"
+                                                                        itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
                                 </div>
-                                <!--/panel-body-->
                             </div>
                         </div>
+                        
                         <div class="col-md-4">
+                            <!-- VALORES -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
-                                    <h4><h:outputText value="#{msj.Valores}"/></h4>
-                                </div>
-                                <div class="panel-body">                
-                                    <h:outputText value="#{msj.NivelesConsec}"/>
+                                    <h4><h:outputText value="#{msj.Valores}"/></h4></div>
+                                <div class="panel-body">                                                   
+                                    <h:outputText value="#{msj.ValoresFiltro}"/>
                                     <br></br>
                                     <br></br>
                                     <div class="row">
-                                        <h:outputLabel for="number" value="Mínimo" style="font-weight:bold; text-align: right" class="col-md-3"/>                    
-                                        <h:inputText id="number" value="#{beanNewAct.integer}" label="Number" size="6" maxlength="6" required="true" class="col-md-3"></h:inputText>
-                                        <h:outputText value="#{validationView.integer}" />
-                                        <h:outputLabel for="number" value="Máximo" style="font-weight:bold; text-align: right" class="col-md-3"/>
-                                        <h:inputText id="number" value="#{beanNewAct.integer}" label="Number" size="6" maxlength="6" required="true" class="col-md-3"></h:inputText>
+                                        <h:outputLabel for="number" value="Mínimo" style="font-weight:bold" class="col-md-3"/>                    
+                                        <h:inputText id="number" value="#{beanNewMedallasUser.integer}" label="Number" class="col-md-4">
+                                            <f:validateLength minimum="0" maximum="6"></f:validateLength>
+                                        </h:inputText>
+                                    </div>
+                                    <br></br>
+                                    <div class="row">
+                                        <h:outputLabel for="number" value="Máximo" style="font-weight:bold" class="col-md-3"/>  
+                                        <h:inputText required="required" value="#{beanNewMedallasUser.xxx}" size="6" maxlength="6" class="col-md-4"></h:inputText> 
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        
+                        
                     </div>
 
                     <div class="row">
+                        <!-- PUNTOS -->
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Puntos}"/></h4>
                                 </div>
                                 <div class="panel-body">                                                     
-                                    Introduce los puntos para establecer medalla:
+                                     <h:outputText value="#{msj.PuntosEstab}"/>
                                     <br></br>
                                     <br></br>
                                     <h:outputLabel for="number" value="Puntos" style="font-weight:bold; text-align: right" class="col-md-3"/>
                                     <h:inputText required="required" value="#{beanNewMedallaUser.xxx}" size="6" maxlength="6" accesskey="true" ></h:inputText>
-
                                 </div>
                             </div>   
                         </div>
-
+                 
                         <div class="col-md-4">
+                            <!-- FECHA -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Fecha}"/></h4></div>
-                                <div class="panel-body">   
-                                    Introduce fechas para establecer actividad:
+                                <div class="panel-body">                                                   
+                                    <h:outputText value="#{msj.FechasFiltro}"/>
                                     <br></br>
                                     <br></br>
                                     <div class="row">
-                                        <p:outputLabel for="fechaInicio" value="#{msj.Inicio}" class="col-md-2" style="text-align: right" />
-                                        <p:calendar pattern="MM/dd/yyyy" id="fechaInicio" value="#{calendarView.fechaInicio}" required="requiered" mindate="2016-01-01" class="col-md-2" />
+                                        <h:outputLabel for="number" value="#{msj.Minima}" style="font-weight:bold; text-align: right" class="col-md-3" /> 
+                                        <p:calendar pattern="dd/MM/yyyy" widgetVar="cal" class="col-md-2" accesskey="true"
+                                                    id="fechaInicio" value="#{calendarView.fechaInicio}" required="true" mindate="2016-01-01">
+                                            <p:ajax event="dateSelect" oncomplete="onDateSelect()" id="calendario"></p:ajax>
+                                        </p:calendar>
                                     </div>
                                     <br></br>
                                     <div class="row">
-                                        <p:outputLabel for="fechaInicio" value="#{msj.Fin}" class="col-md-2" style="text-align: right" />
-                                        <p:calendar pattern="dd/MM/yyyy" widgetVar="cal" class="col-md-2"> 
-                                            <p:ajax event="dateSelect" oncomplete="onDateSelect()"></p:ajax>
+                                        <h:outputLabel for="number" value="#{msj.Maxima}" style="font-weight:bold; text-align: right" class="col-md-3" /> 
+                                        <p:calendar pattern="dd/MM/yyyy" widgetVar="cal" class="col-md-2" accesskey="true" 
+                                                    id="fechaMax" value="#{calendarView.fechaFin}" required="true" mindate="fechaInicio"> 
+                                            <p:ajax event="dateSelect" oncomplete="onDateSelect()" id="calendario"></p:ajax>
                                         </p:calendar>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        
+                            
                     </div>
                 </div>
 
                 <!--                    BOTONES             -->
-
                 <div class="col-md-offset-4">
                     <div class="row">
                         <div class="col-md-12">
-                            <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                             action="#{beanMedalla.consultaMedalla}">
-                            </p:commandButton> 
+                            <p:button target="_blank"  value="#{msj.Guardar}" class="btn btn-primary col-md-5" id="boton" onclick="guardar()">
+                            </p:button>
                         </div>
                     </div>
                     <br></br>
                     <div class="row">
                         <div class="col-md-12">
-                            <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
-                                             actionListener="crearMedallaUser.xhtml">  
-                            </p:commandButton> 
+                            <p:button target="_blank"  value="#{msj.Cerrar}" class="btn btn-primary col-md-5" id="boton" onclick="cerrar()">
+                            </p:button>
                         </div>
                     </div>
                 </div>
+                            
             </div>
         </div>
 

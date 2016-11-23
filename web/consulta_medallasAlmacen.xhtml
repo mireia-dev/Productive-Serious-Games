@@ -80,19 +80,22 @@
                     <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value="#{msj.MedallasAlm}"/></strong></a>
                     <hr></hr>
                     <div class="row">
-
+                        
                         <div class="col-md-4">
-                            <!--  CENTROS -->
+                            <!-- CENTROS-->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Centros}"/></h4>
                                 </div>
-                                <div class="panel-body">   
-                                    <h:selectManyCheckbox value="#{beanMedallaAlm.CentrosSelec}"> 
-                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->   <!--cada n va a ser un javabean-->
-                                        <f:selectItems value="#{beanMedallaAlm.Centros}" var="n"  
-                                                       itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
-                                    </h:selectManyCheckbox>
+                                <div class="panel-body">                               
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{beanMedallaAlm.CentrosSelec}" label="Centros"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{beanMedallaAlm.Centros}" var="n"
+                                                                        itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
                                 </div>
                             </div>
                         </div>
@@ -112,23 +115,27 @@
                                 </div>
                             </div>
                         </div>
-
+           
                         <div class="col-md-4">
                             <!-- RETOS -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Retos}"/></h4>
                                 </div>
-                                <div class="panel-body">
-                                    <!--multiselect-->
-                                    <h:selectManyCheckbox value="#{beanMedallasAlm.RetosSelec}">
-                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->
-                                        <f:selectItems value="#{beanMedallasAlm.Retos}" var="n"
-                                                       itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
-                                    </h:selectManyCheckbox>
+                                <div class="panel-body">                               
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{beanMedallasAlm.RetosSelec}" label="Retos"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{beanMedallasAlm.Retos}" var="n"
+                                                                        itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
                                 </div>
                             </div>
                         </div>
+                        
+                        
                     </div>
                         <div class="row">
                         <div class="col-md-6">
@@ -221,17 +228,17 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                                 action="#{beanMedalla.consultaMedalla}">
-                                </p:commandButton> 
+                                <p:button target="_blank"  value="#{msj.Consultar}" class="btn btn-primary col-md-5" id="boton"
+                                          onclick="consultaMedallaAlm()">
+                                </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
-                                                 actionListener="crearMedallaUser.xhtml">  
-                                </p:commandButton> 
+                                <p:button target="_blank" href="crearMedallaAlm.xhtml" value="#{msj.CrearNuevaMedallaAlm}" class="btn btn-primary col-md-5" 
+                                          id="boton2">
+                                </p:button>
                             </div>
                         </div>
                     </div>

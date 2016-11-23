@@ -78,7 +78,7 @@
                 <div class="col-md-9">
 
                     <!-- column 2 -->
-                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value=" #{msj.CrearMedallasUser}"/></strong></a>
+                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value=" #{msj.ConsultaMedallasUser}"/></strong></a>
                     <hr></hr>
                     <div class="row">
 
@@ -102,19 +102,21 @@
                             <!-- RETOS -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
-                                    <h4><h:outputText value="#{msj.MedallasUser}"/></h4>
+                                    <h4><h:outputText value="#{msj.Retos}"/></h4>
                                 </div>
-                                <div class="panel-body">
-                                    <!--multiselect-->
-                                    <h:selectManyCheckbox value="#{beanMedallasUser.CentrosSelec}">
-                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->
-                                        <f:selectItems value="#{beanMedallasUser.MedallaUser}" var="n"
-                                                       itemLabel="#{n.nombreMedallaUser}" itemValue="#{n.idMedallaUser}"/>
-                                    </h:selectManyCheckbox>
+                                <div class="panel-body">                               
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{GestionRetos.RetosSelec}" label="Retos"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
+                                                <f:selectItems value="#{GestionRetos.Retos}" var="n"
+                                                                        itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
                                 </div>
                             </div>
                         </div>
-
+                          
                         <div class="col-md-4">
                             <!-- VALORES -->
                             <div class="panel panel-default">
@@ -141,7 +143,7 @@
                     </div>
 
                     <div class="row">
-
+                        <!-- FECHA -->
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
@@ -192,17 +194,17 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                                 action="#{beanMedalla.consultaMedalla}">
-                                </p:commandButton> 
+                                <p:button target="_blank"  value="#{msj.Consultar}" class="btn btn-primary col-md-5" id="boton"
+                                          onclick="consultaMedallaUser()">
+                                </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
-                                                 actionListener="crearMedallaUser.xhtml">  
-                                </p:commandButton> 
+                                <p:button target="_blank" href="crearMedallaUser.xhtml" value="#{msj.CrearNuevaMedallaUser}" class="btn btn-primary col-md-5" 
+                                          id="boton2">
+                                </p:button>
                             </div>
                         </div>
                     </div>
