@@ -129,7 +129,8 @@ public class MedallasUsuImpl implements MedallasUsu {
     public boolean eliminarMedallasUsu(MedallasusuRetos medret){    
         EntityTransaction tx=em.getTransaction();
         tx.begin();
-        em.merge(medret); 
+        em.merge(medret); //para qué si lo quiees eliminar?
+        
         em.remove(medret);
         tx.commit();
         em.close();
