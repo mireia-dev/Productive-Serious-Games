@@ -65,9 +65,9 @@
                             <ul class="nav nav-stacked collapse in" id="userMenu">
                                 <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
-                                <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                <li><a href="consulta_medallasUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
                                 <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
-                                <li><a href="consulta_recompensa"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
+                                <li><a href="consulta_recompensa.xhtml"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                             </ul>
                         </li>
@@ -77,7 +77,6 @@
                 <div class="col-sm-9">
 
                     <!--            TITULO              -->
-
                     <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i> Crear Reto</strong></a>
                     <hr></hr>
 
@@ -179,27 +178,6 @@
                 </div>
             </div>
         </div>
-
-            <div class="modal" id="addWidgetModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <p:commandButton class="close">×</p:commandButton>
-                            <h4 class="modal-title">Add Widget</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Add a widget stuff here..</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#" data-dismiss="modal" class="btn">Close</a>
-                            <a href="#" class="btn btn-primary">Save changes</a>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dalog -->
-            </div>
-
     </h:body>
 </html>
 

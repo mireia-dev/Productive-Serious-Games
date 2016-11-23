@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <f:loadBundle basename="textos.mensajes" var="msj"/>
-    
+
     <h:head>  
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
         <meta charset="utf-8"></meta>
@@ -18,7 +18,7 @@
         <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>  
         <h:outputStylesheet library="css" name="estiloPropio.css"></h:outputStylesheet> 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"></link>
-        
+
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/scripts.js"></script>
@@ -65,9 +65,9 @@
                     <ul class="nav nav-stacked">
                         <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
-                                <li><a href="#"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
+                                <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
-                               <li><a href="consulta_medallaUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                <li><a href="consulta_medallasUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
                                 <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
                                 <li><a href="consulta_recompensa.xhtml"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
@@ -88,50 +88,50 @@
                                     <h4><h:outputText value="#{msj.Centros}"/></h4>
                                 </div>
                                 <div class="panel-body">                               
-                                        <h:panelGrid columns="3" cellpadding="5">
-                                            <h:outputLabel for="menu" />
-                                            <p:selectCheckboxMenu id="menu" value="#{beanActividades.CentrosSelec}" label="Centros"
-                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
-                                                <f:selectItems value="#{beanActividades.Centros}" var="n"
-                                                                        itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
-                                            </p:selectCheckboxMenu>
-                                        </h:panelGrid>
+                                    <h:panelGrid columns="3" cellpadding="5">
+                                        <h:outputLabel for="menu" />
+                                        <p:selectCheckboxMenu id="menu" value="#{beanActividades.CentrosSelec}" label="Centros"
+                                                              required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
+                                            <f:selectItems value="#{beanActividades.Centros}" var="n"
+                                                           itemLabel="#{n.nombreCentro}" itemValue="#{n.idCentro}"/>
+                                        </p:selectCheckboxMenu>
+                                    </h:panelGrid>
 
-<!--                                        <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
-                                            <p:dataList value="#{beanActividades.CentrosSelec}" var="centro" emptyMessage="Centros no seleccionados">
-                                                #{centros}
-                                            </p:dataList>
-                                        </p:outputPanel> -->
+                                    <!--                                        <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+                                                                                <p:dataList value="#{beanActividades.CentrosSelec}" var="centro" emptyMessage="Centros no seleccionados">
+                                    #{centros}
+                                </p:dataList>
+                            </p:outputPanel> -->
                                 </div>
                             </div>
                         </div>
                         <!--/col-->
                         <div class="col-md-6">
-                             <!-- ACTIVIDAD -->
+                            <!-- ACTIVIDAD -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Actividad}"/></h4></div>
                                 <div class="panel-body">
-                                    
-                                        <h:panelGrid columns="3" cellpadding="5">
-                                            <h:outputLabel for="menu"/>
-                                            <p:selectCheckboxMenu id="menu" value="#{beanActividades.ActividadesSelec}" label="Actividades"
-                                                                  filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
-                                                <f:selectItems value="#{beanActividades.Actividades}" var="n"
-                                                                        itemLabel="#{n.nombreAct}" itemValue="#{n.idAct}"/>
-                                            </p:selectCheckboxMenu>
-                                        </h:panelGrid>
 
-<!--                                        <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
-                                            <p:dataList value="#{beanActividades.ActividadesSelec}" var="acti" emptyMessage="Actividades no seleccionados">
-                                                #{actividades}
-                                            </p:dataList>
-                                        </p:outputPanel> -->
+                                    <h:panelGrid columns="3" cellpadding="5">
+                                        <h:outputLabel for="menu"/>
+                                        <p:selectCheckboxMenu id="menu" value="#{beanActividades.ActividadesSelec}" label="Actividades"
+                                                              filter="true" filterMatchMode="startsWith" panelStyle="width:500px" class="desplegable" style="width: 15em">
+                                            <f:selectItems value="#{beanActividades.Actividades}" var="n"
+                                                           itemLabel="#{n.nombreAct}" itemValue="#{n.idAct}"/>
+                                        </p:selectCheckboxMenu>
+                                    </h:panelGrid>
+
+                                    <!--                                        <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+                                                                                <p:dataList value="#{beanActividades.ActividadesSelec}" var="acti" emptyMessage="Actividades no seleccionados">
+                                    #{actividades}
+                                </p:dataList>
+                            </p:outputPanel> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                             <!--        BOTONES     -->  
+                    <!--        BOTONES     -->  
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
@@ -151,69 +151,49 @@
                     </div>         
                 </div>
             </div>                   
-                    
-                    <div class="row">
-                        <div class="col-md-12">
 
-                            <h1>JSF 2 dataTable - MUESTRA DATOS</h1>
+            <div class="row">
+                <div class="col-md-12">
 
-                            <h:dataTable value="#{beanActividades.mostrarActividades}" var="o"
-                                         styleClass="order-table"
-                                         headerClass="order-table-header"
-                                         rowClasses="order-table-odd-row,order-table-even-row">
+                    <h1>JSF 2 dataTable - MUESTRA DATOS</h1>
 
-                                <h:column>
-                                    <!-- column header -->
-                                    <f:facet name="header">Resultados búsqueda</f:facet>
-                                    <!-- row record -->
-                                    #{o.orderNo} <!--CAMBIAR-->
-                                </h:column>
+                    <h:dataTable value="#{beanActividades.mostrarActividades}" var="o"
+                                 styleClass="order-table"
+                                 headerClass="order-table-header"
+                                 rowClasses="order-table-odd-row,order-table-even-row">
 
-                                <h:column>
-                                    <f:facet name="header">Centro</f:facet>
-                                        #{o.centro}
-                                </h:column>
+                        <h:column>
+                            <!-- column header -->
+                            <f:facet name="header">Resultados búsqueda</f:facet>
+                            <!-- row record -->
+                            #{o.orderNo} <!--CAMBIAR-->
+                        </h:column>
 
-                                <h:column>
-                                    <f:facet name="header">Actividad</f:facet>
-                                        #{o.actividad}
-                                </h:column>
+                        <h:column>
+                            <f:facet name="header">Centro</f:facet>
+                                #{o.centro}
+                        </h:column>
 
-                                <h:column>
-                                    <f:facet name="header">Niveles consecución</f:facet>
-                                        #{o.nivelescon}
-                                </h:column>
+                        <h:column>
+                            <f:facet name="header">Actividad</f:facet>
+                                #{o.actividad}
+                        </h:column>
 
-                                <h:column>
-                                    <f:facet name="header">Acciones</f:facet>
-                                        #{o.acciones}
-                                </h:column>
+                        <h:column>
+                            <f:facet name="header">Niveles consecución</f:facet>
+                                #{o.nivelescon}
+                        </h:column>
 
-                                <h:commandButton value="Crear actividad" type="submit" action="#{beanActividades.crearActividad}" />
+                        <h:column>
+                            <f:facet name="header">Acciones</f:facet>
+                                #{o.acciones}
+                        </h:column>
 
-                            </h:dataTable>
-                        </div>
-                    </div>
-        </div>
-        <!-- /Main -->
-        <div class="modal" id="addWidgetModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Add Widget</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Add a widget stuff here..</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" data-dismiss="modal" class="btn">Close</a>
-                        <a href="#" class="btn btn-primary">Save changes</a>
-                    </div>
+                        <h:commandButton value="Crear actividad" type="submit" action="#{beanActividades.crearActividad}" />
+
+                    </h:dataTable>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dalog -->
         </div>
     </h:body>
 </html>

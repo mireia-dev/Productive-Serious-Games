@@ -64,11 +64,11 @@
                         <ul class="nav nav-stacked">
                             <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
                                 <ul class="nav nav-stacked collapse in" id="userMenu">
-                                    <li><a href="index.xhtml"><i class="glyphicon glyphicon-th"></i> Tipo de actividad</a></li>
-                                    <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i> Retos usuario</a></li>
-                                    <li><a href="consulta_mellaUser.xhtml"><i class="glyphicon glyphicon-user"></i> Medalla usuario</a></li>
-                                    <li><a href="#"><i class="glyphicon glyphicon-tower"></i> Medalla almacén</a></li>
-                                    <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Recompensa</a></li>
+                                    <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
+                                    <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
+                                    <li><a href="consulta_medallasUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                    <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
+                                    <li><a href="consulta_recompensa.xhtml"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                     <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                                 </ul>
                             </li>
@@ -177,28 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--/col-span-9-->
                 </div>
-            </div>
-
-            <div class="modal" id="addWidgetModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <p:commandButton>*</p:commandButton>
-                            <h4 class="modal-title">Add Widget</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Add a widget stuff here..</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#" data-dismiss="modal" class="btn">Close</a>
-                            <a href="#" class="btn btn-primary">Save changes</a>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dalog -->
             </div>
 
         </h:form>

@@ -65,11 +65,11 @@
                     <ul class="nav nav-stacked">
                         <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
-                                <li><a href="index.xhtml"><i class="glyphicon glyphicon-th"></i> Tipo de actividad</a></li>
-                                <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i> Retos usuario</a></li>
-                                <li><a href="consulta_mellaUser.xhtml"><i class="glyphicon glyphicon-user"></i> Medalla usuario</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-tower"></i> Medalla almacén</a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-usd"></i> Recompensa</a></li>
+                                <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
+                                <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
+                                <li><a href="consulta_medallasUser.xhtml"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.MedallaUsuario}"/></a></li>
+                                <li><a href="consulta_medallasAlmacen.xhtml"><i class="glyphicon glyphicon-tower"></i><h:outputText value="#{msj.MedallaAlmacen}"/></a></li>
+                                <li><a href="consulta_recompensa.xhtml"><i class="glyphicon glyphicon-usd"></i><h:outputText value="#{msj.Recompensa}"/></a></li>
                                 <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
                             </ul>
                         </li>
@@ -88,7 +88,7 @@
                         <div class="col-md-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
-                                    <h4>Recompensa</h4></div>
+                                    <h4><h:outputText value="#{msj.Recompensa}"/></h4></div>
                                 <div class="panel-body">
                                     <h:inputTextarea rows="1" cols="15" id="reto" value="#{beanNewRecompensa.NombreRecomp}"
                                                      label="Nombre del reto" required="true"></h:inputTextarea>
@@ -99,12 +99,11 @@
                         <div class="col-md-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
-                                    <h4>Recompensa</h4></div>
+                                    <h4><h:outputText value="#{msj.Descripc}"/></h4></div>
                                 <div class="panel-body">
                                     <h:inputTextarea rows="1" cols="15" id="reto" value="#{beanNewReto.RetosSelec}"
                                                      label="Nombre del reto" required="true"></h:inputTextarea>
                                 </div>
-                                <!--/panel-body-->
                             </div>
                         </div>
                     </div>
@@ -138,15 +137,18 @@
                             <!--  MEDALLAS -->
                             <div class="panel panel-default">
                                 <div class="panel-heading" id="titulo">
-                                    <h4><h:outputText value="#{msj.Medalla}"/></h4>
+                                    <h4><h:outputText value="#{msj.MedallasUsuario}"/></h4>
                                 </div>
                                 <div class="panel-body"> 
-                                    <!-- indica select, no selectmanyCheckBox -->
-                                    <h:selectManyCheckbox value="#{beanMedallaUser.MedallaSelec}"> 
-                                        <!-- En "beanNewAct.Centros" se cargarán los values chequeados -->   <!--cada n va a ser un javabean-->
-                                        <f:selectItems value="#{beanMedallaUser.Medallas}" var="n"  
-                                                       itemLabel="#{n.nombreMedalla}" itemValue="#{n.idMedalla}"/>
-                                    </h:selectManyCheckbox>
+                                    <h:panelGrid columns="3" cellpadding="5">
+                                        <h:outputLabel for="menu" />
+                                        <p:selectCheckboxMenu id="menu" value="#{beanMedallasUser.MedallaSelec}" label="Medallas"
+                                                              required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
+                                            <f:selectItems value="#{beanMedallasUser.MedallaUser}" var="n"
+                                                           itemLabel="#{n.nombreMedallaUser}" itemValue="#{n.idMedallaUser}"/>
+                                        </p:selectCheckboxMenu>
+                                    </h:panelGrid>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -155,43 +157,23 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton" value="Consultar" 
-                                                 action="#{beanRecompensa.consultaRecompensa}">
-                                </p:commandButton> 
+                                <p:button target="_blank"  value="#{msj.Guardar}" class="btn btn-primary col-md-5" id="boton" onclick="guardar()">
+                                </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="Crear nueva medalla" 
-                                                 actionListener="crearRecompensa.xhtml">  
-                                </p:commandButton> 
+                                <p:button target="_blank"  value="#{msj.Cerrar}" class="btn btn-primary col-md-5" id="boton" onclick="cerrar()">
+                                </p:button>
                             </div>
                         </div>
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
-
-            <div class="modal" id="addWidgetModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <p:commandButton class="close">×</p:commandButton>
-                            <h4 class="modal-title">Add Widget</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Add a widget stuff here..</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#" data-dismiss="modal" class="btn">Close</a>
-                            <a href="#" class="btn btn-primary">Save changes</a>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dalog -->
-            </div>
 
     </h:body>
 </html>
