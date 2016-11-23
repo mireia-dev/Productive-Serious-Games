@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Mi Actividad</title>
+        <title><h:outputText value="#{msj.MiActividad}"/></title>
         <meta charset="UTF-8"></meta>
         <f:loadBundle basename="textos.mensajes" var="msj"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -32,8 +32,8 @@
             <div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation"><a href="#"  role="tab" data-toggle="tab"><h:graphicImage class="id" value="resources/img/icons/user.png"/></a></li>
-                    <li role="presentation"><h:outputLink role="tab" value="#"><h:outputText value="#{msj.rkgUsuarios}"></h:outputText></h:outputLink></li>
-                    <li role="presentation"><h:outputLink role="tab" value="#"><h:outputText value="#{msj.rkgAlmacenes}"></h:outputText></h:outputLink></li>
+                    <li role="presentation"><h:outputLink role="tab" value="ranking_usuarios.xhtml"><h:outputText value="#{msj.rkgUsuarios}"></h:outputText></h:outputLink></li>
+                    <li role="presentation"><h:outputLink role="tab" value="ranking_almacenes.xhtml"><h:outputText value="#{msj.rkgAlmacenes}"></h:outputText></h:outputLink></li>
                     <li role="presentation" class="active"><h:outputLink role="tab" value="#"><h:outputText value="#{msj.miActividad}"></h:outputText></h:outputLink></li>  
                 </ul>
             </div>

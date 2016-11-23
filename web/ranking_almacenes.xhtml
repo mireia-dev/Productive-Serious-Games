@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Ranking Alamcenes</title>
+        <title><h:outputText value="#{msj.rkgAlm}"/></title>
         <meta charset="UTF-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <meta http-equiv="X-UA-Conpatible" content="IE=edge"></meta>
@@ -30,9 +30,9 @@
             <div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation"><a href="#"  role="tab" data-toggle="tab"><h:graphicImage class="id" value="resources/img/icons/user.png"/></a></li>
-                    <li role="presentation"><h:outputLink role="tab" value="#"><h:outputText value="#{msj.rkgUsuarios}"></h:outputText></h:outputLink></li>
+                    <li role="presentation"><h:outputLink role="tab" value="ranking_usuarios.xhtml"><h:outputText value="#{msj.rkgUsuarios}"></h:outputText></h:outputLink></li>
                     <li role="presentation" class="active"><h:outputLink role="tab" value="#"><h:outputText value="#{msj.rkgAlmacenes}"></h:outputText></h:outputLink></li>
-                    <li role="presentation"><h:outputLink role="tab" value="#"><h:outputText value="#{msj.miActividad}"></h:outputText></h:outputLink></li>  
+                    <li role="presentation"><h:outputLink role="tab" value="mi_actividad.xhtml"><h:outputText value="#{msj.miActividad}"></h:outputText></h:outputLink></li>  
                 </ul>
             </div>
         </nav>
@@ -255,4 +255,3 @@
 
     </h:body>
 </html>
-

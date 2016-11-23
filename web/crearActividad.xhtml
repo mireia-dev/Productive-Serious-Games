@@ -9,7 +9,7 @@
     <h:head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
         <meta charset="utf-8"></meta>
-        <title>Panel de Administración</title>
+        <title><h:outputText value="#{msj.PanAdmin}"/></title>
         <meta name="generator" content="Bootply"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
         <meta http-equiv="X-UA-Conpatible" content="IE=edge"></meta>
@@ -36,7 +36,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Mi panel de Administración</a>
+                        <a class="navbar-brand" href="#"><h:outputText value="#{msj.PanelAdmin}"/></a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -62,7 +62,7 @@
                         <!--<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Opciones</strong></a>-->
 
                         <ul class="nav nav-stacked">
-                            <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
+                            <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu"><h:outputText value="#{msj.PanelAdmin}"/><i class="glyphicon glyphicon-chevron-down"></i></a>
                                 <ul class="nav nav-stacked collapse in" id="userMenu">
                                     <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
                                     <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
