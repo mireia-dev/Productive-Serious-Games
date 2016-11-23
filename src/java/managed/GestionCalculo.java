@@ -6,7 +6,7 @@
 package managed;
 
 import beans.beanRetos;
-import calculoRetos.listadoOperarioRetos;
+import calculo.listadoOperarioRetos;
 import java.util.HashMap;
 import java.util.List;
 import javax.faces.bean.ManagedBean;

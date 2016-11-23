@@ -1,4 +1,4 @@
-package calculoRetos;
+package calculo;
 
 import beans.operarioDesvios;
 import beans.operarioDias;
@@ -26,12 +26,12 @@ Listados:
 */
 
 
-public class obtenerListados {
+public class obtenerTodasListas {
     private List<TrUsuarios> listaCompleta;
             
     public List<TrUsuarios> getListaCompletaOperarios(){
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("P_S_GPU");
+            Persistence.createEntityManagerFactory("Psg2PU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createNamedQuery("TrUsuarios.findAll");
         List<TrUsuarios> listado = q.getResultList();
@@ -44,7 +44,7 @@ public class obtenerListados {
     }
     public List<operarioURL> getListaOperariosURLfoto(){
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("P_S_GPU");
+            Persistence.createEntityManagerFactory("Psg2PU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createNamedQuery("TrUsuarios.findAll");
         List listado = q.getResultList();
@@ -65,7 +65,7 @@ public class obtenerListados {
     
     public List<operarioMov> getListaMovimientos(){
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("P_S_GPU");
+            Persistence.createEntityManagerFactory("Psg2PU");
         EntityManager em = emf.createEntityManager();
     //utilizando otra query que agrupa por operario
         Query q = em.createQuery("SELECT h, COUNT(h) FROM HandTiempos h WHERE h.tipoTiempo.id = :A GROUP BY h.operario");
@@ -91,7 +91,7 @@ public class obtenerListados {
     
     public List<operarioHoras> getListaHorasExtra(){
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("P_S_GPU");
+            Persistence.createEntityManagerFactory("Psg2PU");
         EntityManager em = emf.createEntityManager();
 
         Query q = em.createQuery("SELECT h FROM HandHrealOper h WHERE h.horasExtraCliente > 0 OR h.horasExtraKn > 0");
@@ -129,7 +129,7 @@ public class obtenerListados {
     
     public List<operarioDesvios> getDesvios(){
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("P_S_GPU");
+            Persistence.createEntityManagerFactory("Psg2PU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createNamedQuery("HandDesviosTiempos2.findAll");
         List listado = q.getResultList();
@@ -173,11 +173,11 @@ public class obtenerListados {
     
     public List<operarioDias> getListaCompromiso(){
         //Es necesario obtener la lista completa de operarios
-        obtenerListados objaux = new obtenerListados();
+        obtenerTodasListas objaux = new obtenerTodasListas();
         List<TrUsuarios> listaCompletaAux = objaux.getListaCompletaOperarios();
         
         EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("P_S_GPU");
+            Persistence.createEntityManagerFactory("Psg2PU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT h FROM HandHrealOper h WHERE (h.trabajado = '0' AND h.motivoId.id >2)");
         List listado = q.getResultList();

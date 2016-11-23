@@ -4,16 +4,19 @@ public class beanRetos {
     private int IDreto;
     private double puntuacionOp;
     private double porcentaje;
+    private String URL;
 
+    public beanRetos(int IDreto, double puntuacionOp, double porcentaje, String URL) {
+        this.IDreto = IDreto;
+        this.puntuacionOp = puntuacionOp;
+        this.porcentaje = porcentaje;
+        this.URL = URL;
+    }
+    
     public beanRetos(int IDreto, double puntuacionOp, double porcentaje) {
         this.IDreto = IDreto;
         this.puntuacionOp = puntuacionOp;
         this.porcentaje = porcentaje;
-    }
-
-    public beanRetos(int IDreto, double puntuacionOp) {
-        this.IDreto = IDreto;
-        this.puntuacionOp = puntuacionOp;
     }
 
     public int getIDreto() {
@@ -39,7 +42,15 @@ public class beanRetos {
     public void setPorcentaje(double porcentaje) {
         this.porcentaje = porcentaje;
     }
-    
+
+    public String getURL() {
+        return URL;
+    }
+
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+        
     @Override
     public String toString(){
         return IDreto+" "+puntuacionOp+" "+porcentaje;
