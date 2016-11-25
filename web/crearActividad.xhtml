@@ -41,7 +41,7 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                                <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i><h:outputText value=" #{msj.Adm}"/><span class="caret"></span></a>
                                 <ul id="g-account-menu" class="dropdown-menu" role="menu">
                                     <li><a href="#">My Profile</a></li>
                                 </ul>
@@ -62,7 +62,7 @@
                         <!--<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Opciones</strong></a>-->
 
                         <ul class="nav nav-stacked">
-                            <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu"><h:outputText value="#{msj.PanelAdmin}"/><i class="glyphicon glyphicon-chevron-down"></i></a>
+                            <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu"><h:outputText value="#{msj.Admin}"/><i class="glyphicon glyphicon-chevron-down"></i></a>
                                 <ul class="nav nav-stacked collapse in" id="userMenu">
                                     <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
                                     <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>

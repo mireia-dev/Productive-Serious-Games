@@ -42,7 +42,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.Adm}"/><span class="caret"></span></a>
                             <ul id="g-account-menu" class="dropdown-menu" role="menu">
                                 <li><a href="#">My Profile</a></li>
                             </ul>
@@ -63,7 +63,7 @@
                     <!--<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Opciones</strong></a>-->
 
                     <ul class="nav nav-stacked">
-                        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
+                        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu"><h:outputText value="#{msj.Admin}"/><i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
                                 <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i> <h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
@@ -80,7 +80,7 @@
 
                     <!--            TITULO              -->
 
-                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i> Crear Recompensa</strong></a>
+                    <a href="#"><strong><i class="glyphicon glyphicon-dashboard" id="label"></i><h:outputText value=" #{msj.CrearRecom}"/></strong></a>
                     <hr></hr>
 
                     <div class="row">
@@ -90,7 +90,7 @@
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Recompensa}"/></h4></div>
                                 <div class="panel-body">
-                                    <h:inputTextarea rows="1" cols="15" id="reto" value="#{beanNewRecompensa.NombreRecomp}"
+                                    <h:inputTextarea rows="1" cols="30" id="reto" value="#{beanNewRecompensa.NombreRecomp}"
                                                      label="Nombre del reto" required="true"></h:inputTextarea>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Descripc}"/></h4></div>
                                 <div class="panel-body">
-                                    <h:inputTextarea rows="1" cols="15" id="reto" value="#{beanNewReto.RetosSelec}"
+                                    <h:inputTextarea rows="1" cols="30" id="reto" value="#{beanNewReto.RetosSelec}"
                                                      label="Nombre del reto" required="true"></h:inputTextarea>
                                 </div>
                             </div>
@@ -140,15 +140,16 @@
                                     <h4><h:outputText value="#{msj.MedallasUsuario}"/></h4>
                                 </div>
                                 <div class="panel-body"> 
-                                    <h:panelGrid columns="3" cellpadding="5">
-                                        <h:outputLabel for="menu" />
-                                        <p:selectCheckboxMenu id="menu" value="#{beanMedallasUser.MedallaSelec}" label="Medallas"
-                                                              required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
-                                            <f:selectItems value="#{beanMedallasUser.MedallaUser}" var="n"
-                                                           itemLabel="#{n.nombreMedallaUser}" itemValue="#{n.idMedallaUser}"/>
-                                        </p:selectCheckboxMenu>
-                                    </h:panelGrid>
-                                    
+                                    <h:form>
+                                        <h:panelGrid columns="3" cellpadding="5">
+                                            <h:outputLabel for="menu" />
+                                            <p:selectCheckboxMenu id="menu" value="#{beanMedallasUser.MedallaSelec}" label="Medallas"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 300%">
+                                                <f:selectItems value="#{beanMedallasUser.MedallaUser}" var="n"
+                                                               itemLabel="#{n.nombreMedallaUser}" itemValue="#{n.idMedallaUser}"/>
+                                            </p:selectCheckboxMenu>
+                                        </h:panelGrid>
+                                    </h:form>
                                 </div>
                             </div>
                         </div>
@@ -157,14 +158,14 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:button target="_blank"  value="#{msj.Guardar}" class="btn btn-primary col-md-5" id="boton" onclick="guardar()">
+                                <p:button target="_self"  value="#{msj.Guardar}" class="btn btn-primary col-md-5" id="boton1" onclick="guardar()">
                                 </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:button target="_blank"  value="#{msj.Cerrar}" class="btn btn-primary col-md-5" id="boton" onclick="cerrar()">
+                                <p:button target="_self"  value="#{msj.Cerrar}" class="btn btn-primary col-md-5" id="boton" onclick="cerrar()">
                                 </p:button>
                             </div>
                         </div>

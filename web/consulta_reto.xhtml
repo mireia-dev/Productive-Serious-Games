@@ -26,10 +26,8 @@
         <script src="js/Date.js" type="text/javascript"></script>
 
     </h:head>
-    <!-- COMPLETAR PARA EVA Y NADIA: enlace de Crear, pasarles el código, conectar boton d cerrar y guardar, revisar MG y métodos. y cambiar el select many a menu -->
 
     <h:body>
-
         <!-- header -->
         <div id="top-nav" class="navbar navbar-inverse navbar-static-top">
             <div class="container-fluid">
@@ -44,7 +42,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                            <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i><h:outputText value="#{msj.Adm}"/><span class="caret"></span></a>
                             <ul id="g-account-menu" class="dropdown-menu" role="menu">
                                 <li><a href="#">My Profile</a></li>
                             </ul>
@@ -63,7 +61,7 @@
                     <!-- Left column -->
 
                     <ul class="nav nav-stacked">
-                        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Administración <i class="glyphicon glyphicon-chevron-down"></i></a>
+                        <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu"><h:outputText value="#{msj.Admin}"/><i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="nav nav-stacked collapse in" id="userMenu">
                                 <li><a href="consulta_actividad.xhtml"><i class="glyphicon glyphicon-th"></i><h:outputText value="#{msj.TipoAct}"/></a></li>
                                 <li><a href="consulta_reto.xhtml"><i class="glyphicon glyphicon-stats"></i><h:outputText value="#{msj.RetosUser}"/></a></li>
@@ -87,15 +85,17 @@
                                 <div class="panel-heading" id="titulo">
                                     <h4><h:outputText value="#{msj.Retos}"/></h4>
                                 </div>
-                                <div class="panel-body">                               
+                                <div class="panel-body">
+                                    <h:form>
                                         <h:panelGrid columns="3" cellpadding="5">
                                             <h:outputLabel for="menu" />
-                                            <p:selectCheckboxMenu id="menu" value="#{GestionRetos.RetosSelec}" label="Centros"
-                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 15em">
+                                            <p:selectCheckboxMenu id="menu" value="#{GestionRetos.RetosSelec}" label="Retos"
+                                                                  required="true" filter="true" filterMatchMode="startsWith" panelStyle="width:350px" class="desplegable" style="width: 300%">
                                                 <f:selectItems value="#{GestionRetos.Retos}" var="n"
                                                                         itemLabel="#{n.nombreReto}" itemValue="#{n.idReto}"/>
                                             </p:selectCheckboxMenu>
                                         </h:panelGrid>
+                                    </h:form>
                                 </div>
                             </div>      
                         </div>
@@ -155,14 +155,14 @@
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
-                                <p:button target="_blank"  value="#{msj.Consultar}" class="btn btn-primary col-md-5" id="boton">
+                                <p:button target="_self"  value="#{msj.Consultar}" class="btn btn-primary col-md-5" id="boton">
                                 </p:button>
                             </div>
                         </div>
                         <br></br>
                         <div class="row">
                             <div class="col-md-12">
-                                <p:button target="_blank" href="crearReto.xhtml" value="#{msj.CrearNuevoReto}" class="btn btn-primary col-md-5" 
+                                <p:button target="_self" href="crearReto.xhtml" value="#{msj.CrearNuevoReto}" class="btn btn-primary col-md-5" 
                                           id="boton2">
                                 </p:button>
                             </div>
