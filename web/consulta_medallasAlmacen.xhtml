@@ -228,7 +228,7 @@
                       
                     </div>
                     </div>
-                    <!--        BOTONES     -->  
+                    <!--        BOTONES     
                     <div class="col-md-offset-4">
                         <div class="row">
                             <div class="col-md-12">
@@ -245,7 +245,34 @@
                                 </p:button>
                             </div>
                         </div>
-                    </div>
+                    </div>      -->
+                    
+                                                 <!--        BOTONES     -->  
+                    <div class="col-md-offset-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <p:commandButton class="btn btn-primary col-md-5" id="boton" value="#{msj.Consultar}" 
+                                                 action="#{beanMedallasAlm.consultaMed}">
+                            </p:commandButton>
+                                
+                            </div>
+                        </div>
+                        <br></br>
+                <!--  <div class="row">
+                            <div class="col-md-12">
+                                <p:commandButton class="btn btn-primary col-md-5" id="boton2" value="#{msj.CrearMedallaAlm}"
+                                                 actionListener="crearMedallaAlm.xhtml">  
+                                </p:commandButton> 
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p:button target="_self" href="crearMedallaAlm.xhtml" value="#{msj.CrearMedallaAlm}" class="btn btn-primary col-md-5"
+                                          id="boton4">
+                                </p:button>
+                            </div>
+                        </div>
+                    </div> 
 
                 </div>
 
